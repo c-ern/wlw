@@ -10,6 +10,13 @@
   <%= @company.location %>
 </p>
 
+<ol>
+<% @company.facilities.each do |facility| %>
+	<li>
+		<%= facility.name + " in " + facility.location %>
+	</li>
+<% end %>
+</ol>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

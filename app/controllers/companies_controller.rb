@@ -15,7 +15,6 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.find(params[:id])
-    @facilities = Facility.find(:all)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,9 +26,8 @@ class CompaniesController < ApplicationController
   # GET /companies/new.json
   def new
     @company = Company.new
-    @facilities = Facility.find(:all)
-    affiliation = @company.affiliations.build()
-    facility = @company.facilities.build
+    3.times { @company.facilities.build }
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @company }
